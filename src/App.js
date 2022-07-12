@@ -1,16 +1,30 @@
-import './App.css';
-import Posts from './components/Posts';
+import React from 'react';
+
+// redux packages and components
 import { Provider } from "react-redux";
 import store from "./store";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Posts from "./components/posts/Posts";
+import Post from "./components/posts/Post";
+import PostForm from "./components/posts/PostForm";
+
+
+const App = () => {
   return (
     <Provider store={store}>
-        <div className="App">
-          <hr />
-          <Posts />
-        </div>
-      </Provider>
+    <BrowserRouter>
+    <Navbar />
+      <Routes>
+          <Route index element={<Home />} />
+          <Route path="posts" element={<Posts />} />
+          <Route path="posts/:id" element={<Post />} />
+          <Route path="form" element={<PostForm />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
   );
 }
 
