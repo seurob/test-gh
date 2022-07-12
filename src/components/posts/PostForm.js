@@ -37,13 +37,13 @@ class PostForm extends Component {
           <h1>Add Posts <small> (testing redux) </small></h1>
           <form onSubmit={this.onSubmit}>
             <div>
-              <label>Title: </label><br/>
-              <input class="form-control" type="text" name="title" onChange={this.onChange} value={this.state.title} required/>
+              <label>Title: </label><br />
+              <input class="form-control" type="text" name="title" onChange={this.onChange} value={this.state.title} required />
             </div>
             <div>
-              <label>Body: </label><br/>
+              <label>Body: </label><br />
               <textarea class="form-control" name="body" onChange={this.onChange} value={this.state.body} required />
-            </div><br/>
+            </div><br />
             <button class="btn btn-primary" type="submit">Post</button>
           </form>
         </div>
