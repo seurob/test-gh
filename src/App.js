@@ -6,12 +6,12 @@ import store from "./store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
 import Posts from "./components/posts/Posts";
 import Post from "./components/posts/Post";
-import PostForm from "./components/posts/PostForm";
+import PostForm from "./components/posts/IndexAddPostForm";
 import ContactForm from "./components/ContactForm";
 import NotFound from "./components/NotFound";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
     <Provider store={store}>
     <BrowserRouter>
     <Navbar />
+
       <Routes>
           <Route index element={<Home />} />
           <Route path="posts" element={<Posts />} />

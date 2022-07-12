@@ -1,31 +1,38 @@
-import { FETCH_POSTS, NEW_POST } from "./types";
+import { GET_POSTS, DELETE_POST, ADD_POST } from './types';
 
-export const fetchPosts = () => (dispatch) => {
-  console.log("fetching...");
-  fetch(`https://jsonplaceholder.typicode.com/posts`)
-    .then((res) => res.json())
-    .then((posts) =>
-      dispatch({
-        type: FETCH_POSTS,
-        payload: posts,
-      })
-    );
-};
+//GET all posts from json placeholder server
+export const getPosts = () => async (dispatch) => {
+   
+        const responce = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const posts = await responce.json();  
+        //console.log(posts);       
 
-export const createPost = (postData) => (dispatch) => {
-  console.log("action called");
-  fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(postData),
-  })
-    .then((res) => res.json())
-    .then((post) =>
-      dispatch({
-        type: NEW_POST,
-        payload: post,
-      })
-    );
-};
+        dispatch({
+            type: GET_POSTS,
+            payload: posts.slice(0, 10)
+        })
+   
+}
+
+//Delete a single post from the UI
+export const deletePost = (id) => (dispatch) => {
+    dispatch({
+        type: DELETE_POST,
+        payload: id
+    })
+}
+
+//ADD a post to UI
+export const addPost = (title, body) => async (dispatch) => {  
+    let addedPost = {
+        title,
+        body,
+        userId: 1,
+        id: Math.random()
+    }
+
+    dispatch({
+        type: ADD_POST,
+        payload: addedPost
+    })   
+}
