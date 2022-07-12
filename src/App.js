@@ -10,7 +10,7 @@ import Home from "./components/Home";
 import Posts from "./components/posts/Posts";
 import Post from "./components/posts/Post";
 import PostForm from "./components/posts/PostForm";
-
+import ContactForm from "./components/ContactForm";
 
 const App = () => {
   return (
@@ -22,6 +22,7 @@ const App = () => {
           <Route path="posts" element={<Posts />} />
           <Route path="posts/:id" element={<Post />} />
           <Route path="form" element={<PostForm />} />
+          <Route path="contact" element={<ContactForm />} />
       </Routes>
     </BrowserRouter>
   </Provider>

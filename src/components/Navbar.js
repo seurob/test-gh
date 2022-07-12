@@ -15,6 +15,9 @@ const Navbar = () => {
                     <li class="nav-item">
                         <NavLink className="btn btn-outline-primary" to="/form">Form Post</NavLink>
                     </li>
+                    <li class="nav-item">
+                        <NavLink className="btn btn-outline-primary" to="/contact">Contact</NavLink>
+                    </li>
                 </ul>
             </div>
         </nav>
